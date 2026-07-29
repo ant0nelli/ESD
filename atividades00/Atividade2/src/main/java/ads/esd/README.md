@@ -4,6 +4,7 @@ classDiagram
         -nome:String
         -cpf:String
         -telefone:String
+        +getHistoricoCliente()
     }
     class Imoveis{
         -desc:String
@@ -16,8 +17,13 @@ classDiagram
         -fim:DateTime
         -valor:double
     }
-    Clientes"1"--Imoveis
-    Clientes"1"--"*"ContratoLocacao
-    Imoveis"1"--"*"ContratoLocacao
+    class App{
+        +getDetalhes(String codigo)
+        +getHistoricoCliente(String cpf)
+    }
+    
+    Clientes "1" -- "*" ContratoLocacao
+    Imoveis "1" *-- "*" ContratoLocacao
+
     
 ```
