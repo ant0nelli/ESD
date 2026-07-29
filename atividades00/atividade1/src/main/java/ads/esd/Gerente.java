@@ -4,7 +4,7 @@ public class Gerente {
     private String nome;
     private String projeto;
     private double salario;
-    private double funcionariosSupervisionados;
+    private int funcionariosSupervisionados;
     private boolean projetoFinalizado;
 
     public Gerente(String nome, double salario, String projeto) {
@@ -37,15 +37,23 @@ public class Gerente {
         this.salario = salario;
     }
 
-    public double remuneracao(String nome){
+    public void setProjetoFinalizado(){
+        projetoFinalizado = true;
+    }
+
+    public void setFuncionariosSupervisionados(int funcionariosSupervisionados){
+        this.funcionariosSupervisionados = funcionariosSupervisionados;
+    }
+
+    public double remuneracao(){
         if(projetoFinalizado){
-            return (salario*0.10) + ((salario * 0.01) * funcionariosSupervisionados);
+            return (salario + (salario*0.10)) + ((salario * 0.01) * funcionariosSupervisionados);
         }
         return salario + ((salario * 0.01) * funcionariosSupervisionados);
     }
 
     @Override
     public String toString() {
-        return "Gerente " + nome + " | Salário: " + remuneracao(nome);
+        return "Gerente " + nome + " | Salário: " + remuneracao();
     }
 }

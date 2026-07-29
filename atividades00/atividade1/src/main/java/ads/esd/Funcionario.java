@@ -7,9 +7,9 @@ public class Funcionario {
     private boolean projetoFinalizado;
 
 
-    public double getRemuneracao(String nome){
+    public double getRemuneracao(){
         if (projetoFinalizado){
-            return salario * 0.10;
+            return salario + (salario * 0.10);
         }
         return salario;
     }
@@ -42,5 +42,9 @@ public class Funcionario {
 
     public void setSalario(double salario) {
         this.salario = salario;
+    }
+
+    public void setProjetoFinalizado(){
+        projetoFinalizado = true;
     }
 }

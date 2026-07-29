@@ -1,15 +1,17 @@
 package ads.esd;
 
-import java.util.Arrays;
 
 public class Projeto {
     private String nome;
     private Funcionario[] funcionarios;
     private Gerente gerente;
 
-    public Projeto(Funcionario[] funcionarios, Gerente gerente) {
+    public Projeto(String nome, Funcionario[] funcionarios, Gerente gerente) {
         this.funcionarios = funcionarios;
         this.gerente = gerente;
+        this.nome = nome;
+
+        this.gerente.setFuncionariosSupervisionados(funcionarios.length);
     }
 
     public Funcionario[] getFuncionarios() {
@@ -23,12 +25,19 @@ public class Projeto {
     private double custoTotal(){
         double total = 0;
         for(Funcionario f: funcionarios){
-            total += f.getSalario();
+            total += f.getRemuneracao();
         }
 
-        return gerente.getSalario() + total;
+        return gerente.remuneracao() + total;
     }
 
+    public void finalizarProjeto(){
+        this.gerente.setProjetoFinalizado();
+
+        for(Funcionario f: funcionarios){
+            f.setProjetoFinalizado();
+        }
+    }
 
 
     @Override
@@ -40,7 +49,7 @@ public class Projeto {
         sb.append("Funcionários: ").append("\n");
 
         for (Funcionario f : funcionarios) {
-            sb.append(f.getNome()).append(": ").append(f.getSalario()).append("\n");
+            sb.append(f.getNome()).append(": ").append(f.getRemuneracao()).append("\n");
         }
 
 
