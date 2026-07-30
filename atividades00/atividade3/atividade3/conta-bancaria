@@ -1,0 +1,14 @@
+extends pessoa
+atributos
+    id, saldo
+
+inicialização
+    criarConta(id,saldo, nome,cpf,nasc)
+    super(nome, nasc, cpf)
+
+modificação
+    setSaldo
+
+consulta
+    getID
+    getSaldo

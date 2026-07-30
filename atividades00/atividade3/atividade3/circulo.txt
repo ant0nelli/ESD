@@ -1,0 +1,15 @@
+atributos:
+    raio
+    
+
+inicialização:
+    criarCirculo(area)
+
+modificação:
+    setRaio()
+
+consulta:
+    getRaio()
+    getDiametro()
+    getArea()
+    getCircunferencia()

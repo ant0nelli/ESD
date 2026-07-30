@@ -1,0 +1,17 @@
+atributos
+    nome
+    nasc
+    cpf
+
+inicialização
+    criarPessoa(nome, nasc, cpf)
+
+modificação
+    setNome
+    setNasc
+    setCPF
+
+consulta
+    getNome
+    getNasc
+    getCPF

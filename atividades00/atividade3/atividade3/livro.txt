@@ -1,0 +1,23 @@
+atributos:
+    autor
+    titulo
+    editora
+    isbn
+    anoPublicacao
+
+inicialização:
+    criarLivro(autor,titulo,editora,isbn,anoPublicacao)
+
+modificação:
+    setAutor
+    setTitulo
+    setEditora
+    setAnoPublicacao
+
+consulta:
+    getAutor
+    getTitulo
+    getEditora
+    getAnoPublicacao
+    getISBN
+

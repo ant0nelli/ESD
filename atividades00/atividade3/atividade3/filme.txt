@@ -1,0 +1,23 @@
+atributos:
+    titulo
+    diretor
+    produtora
+    anoLancamento
+    duracao
+
+inicialização:
+    criarFilme(titulo, diretor, produtora, anoLancamento, duracao)
+
+modificação:
+    setTitulo
+    setDiretor
+    setProdutora
+    setAnoLancamento
+    setDuracao
+
+consulta:
+    getTitulo
+    getDiretor
+    getProdutora
+    getAnoLancamento
+    getDuracao

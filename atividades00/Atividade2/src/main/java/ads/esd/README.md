@@ -24,6 +24,7 @@ classDiagram
     
     Clientes "1" -- "*" ContratoLocacao
     Imoveis "1" *-- "*" ContratoLocacao
+    App -- ContratoLocacao
 
     
 ```

@@ -1,0 +1,17 @@
+atributos
+    id
+    nome
+    qtd
+
+
+inicialização
+    criarItem(id, nome, qtd)
+
+modificação
+    setNome
+    setQtd
+    
+consulta
+    getID
+    getNome
+    getQuantidade

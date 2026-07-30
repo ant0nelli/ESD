@@ -1,0 +1,17 @@
+extends pessoa
+
+atributos
+    matricula
+    curso
+
+inicialização
+    criarAluno(nome, nasc, cpf, matricula, curso)
+    super(nome, nasc, cpf)
+
+modificação
+    setMatricula
+    setCurso
+
+consulta
+    getMatricula
+    getCurso
