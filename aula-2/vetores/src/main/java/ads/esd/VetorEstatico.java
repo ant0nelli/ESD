@@ -41,23 +41,64 @@ public class VetorEstatico{
             System.out.println("Posição Inválida");
             return;
         }
-        for (int i = tamanho; i > indice; i--) {
+        for (int i = tamanho; i > indice; i--) { //***
             elementos[i] = elementos[i-1];
         }
         elementos[indice] = elemento;
         tamanho++;
     }
 
+    //Remover último elemento
     public void removerUltimo(){
-        elementos[tamanho-1] = null;
-        tamanho--;
+        if(tamanho > 0){
+            elementos[tamanho-1] = null;
+            tamanho--;
+        }else{
+            System.out.println("Vetor está vazio");
+        }
+
     }
 
+    //Obter o tamanho do array
     public int obterTamanho(){
         return tamanho;
     }
 
+    //Ler um elemento do array
+    public String ler(int indice){
+        if (indice >= 0 && indice < tamanho) {
+            return elementos[indice];
+        }else {
+            throw  new IndexOutOfBoundsException("Indice inválido");
+        }
+    }
 
+    //Remover um elemento do array
+    public void remover(int indice){
+        if(indice < 0 || indice >= tamanho){
+            System.out.println("Indice Inválido");
+            return;
+        }
+
+        for (int i = indice; i < tamanho; i++) {
+            elementos[i] = elementos[i+1];
+        }
+        elementos[tamanho-1] = null;
+        tamanho--;
+
+    }
+
+    //Remover passando objeto
+    public void remover(String elemento){
+        for (int i = 0; i < tamanho; i++) {
+            if(elementos[i].equals(elemento)){
+                remover(i);
+                return
+            }
+        }
+    }
+
+    //Imprimir todo o array
     public void imprimir(){
         System.out.print("[");
         for (int i = 0; i < elementos.length; i++) {

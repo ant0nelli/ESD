@@ -11,9 +11,12 @@ public class Main {
         v1.inserir(3,"quarto");
         v1.imprimir();
         System.out.println(v1.obterTamanho());
-        v1.removerUltimo();
+        //v1.removerUltimo();
         v1.imprimir();
         System.out.println(v1.obterTamanho());
+        v1.remover("segundo");
+        v1.imprimir();
+
 
     }
 }
