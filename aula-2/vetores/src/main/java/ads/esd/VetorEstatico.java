@@ -93,7 +93,7 @@ public class VetorEstatico{
         for (int i = 0; i < tamanho; i++) {
             if(elementos[i].equals(elemento)){
                 remover(i);
-                return
+                return;
             }
         }
     }
