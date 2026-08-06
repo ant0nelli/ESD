@@ -7,7 +7,7 @@ public class Main {
         Contato arthur = new Contato("Arthur", "489910475884", "arthur@email.com");
 
         //Criar Agenda
-        Agenda primeiraAgenda = new Agenda(20);
+        Agenda primeiraAgenda = new Agenda(30);
         //Adicionar o Contato na Agenda
         primeiraAgenda.addContato(arthur);
 
@@ -31,14 +31,14 @@ public class Main {
         // primeiraAgenda.getContatos();
 
         //Criação de duplciados
-        System.out.println("Criar outro arthur");
-        Contato arthur2 = new Contato("Arthur", "4894910475884", "arthur2@email.com");
-        primeiraAgenda.addContato(arthur2);
-
-        System.out.println("Telefones iguais");
-        Contato arthur3 = new Contato("Arthur 3", "489910475884", "arthur3@email.com");
-        primeiraAgenda.addContato(arthur3);
-        primeiraAgenda.getContatos();
+//        System.out.println("Criar outro arthur");
+//        Contato arthur2 = new Contato("Arthur", "4894910475884", "arthur2@email.com");
+//        primeiraAgenda.addContato(arthur2);
+//
+//        System.out.println("Telefones iguais");
+//        Contato arthur3 = new Contato("Arthur 3", "489910475884", "arthur3@email.com");
+//        primeiraAgenda.addContato(arthur3);
+//        primeiraAgenda.getContatos();
 
 
         // Buscar específico
@@ -99,6 +99,10 @@ public class Main {
         System.out.println("Remover contato");
         primeiraAgenda.removeContato(ana);
         primeiraAgenda.getContatos();
-        
+
+//        Contato joaozinho = new Contato("João Pedro", "9443322211", "dani@email.com");
+//        primeiraAgenda.addContato(joaozinho);
+
+
     }
 }

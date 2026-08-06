@@ -11,23 +11,23 @@ public class Agenda {
     // Adicionar Contato
     public void addContato(Contato nome) {
         if (tamanho >= agenda.length) {
-            System.out.println("Agenda está cheia");
-            return;
+            throw new IndexOutOfBoundsException("Agenda está cheia");
         }
 
-        // Verificar nomes repetidos
+        // Verificar dados repetidos
         if (tamanho > 0) {
             for (Contato c : this.agenda) {
                 if (c != null) {
                     if (c.getNome().equals(nome.getNome())) {
-                        System.out.println("Esse nome já existe na agenda");
-                        return;
+                        throw new IllegalStateException("Esse nome já existe na agenda");
+
                     } else if (c.getTelefone().equals(nome.getTelefone())) {
-                        System.out.println("Esse telefone já existe na agenda");
-                        return;
+                        throw new IllegalStateException("Esse telefone já existe na agenda");
+                    }
+                    if(c.getEmail() != null && c.getEmail().equals(nome.getEmail())){
+                        throw new IllegalStateException ("Esse email já existe na agenda");
                     }
                 }
-
             }
         }
 
@@ -43,6 +43,7 @@ public class Agenda {
                 return;
             }
         }
+
     }
 
     // Listar contatos
@@ -64,8 +65,7 @@ public class Agenda {
     // Remover indice e reoordenar
     private void remover(int indice) {
         if (indice < 0 || indice >= tamanho) {
-            System.out.println("Indice Inválido");
-            return;
+            throw new IllegalStateException("Indice Inválido");
         }
 
         for (int i = indice; i < tamanho; i++) {
@@ -87,7 +87,7 @@ public class Agenda {
 
     // Buscar Contato
     public String getContato(String valor) {
-        StringBuilder sb = new StringBuilder("");
+        StringBuilder sb = new StringBuilder();
 
         int encontrados = 0;
         for (Contato c : agenda) {
@@ -101,7 +101,7 @@ public class Agenda {
                 }
             }
         }
-        sb.append("Na agenda existe " + encontrados + " contato(s) com o valor " + valor + " na agenda.");
+        sb.append("Na agenda existe ").append(encontrados).append(" contato(s) com o valor ").append(valor).append("na agenda");
         return sb.toString();
     }
 
@@ -128,7 +128,7 @@ public class Agenda {
 
     // Buscar por prefixo
     public String buscarPrefixo(String valor) {
-        StringBuilder sb = new StringBuilder("");
+        StringBuilder sb = new StringBuilder();
 
         int encontrados = 0;
         for (Contato c : agenda) {
