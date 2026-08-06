@@ -63,7 +63,7 @@ public class Agenda {
 
     // Remover indice e reoordenar
     private void remover(int indice) {
-        if (indice > 0 || indice >= tamanho) {
+        if (indice < 0 || indice >= tamanho) {
             System.out.println("Indice Inválido");
             return;
         }

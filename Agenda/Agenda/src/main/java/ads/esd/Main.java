@@ -2,25 +2,35 @@ package ads.esd;
 
 public class Main {
     public static void main(String[] args) {
+
+        //Criar primeiro Contato
         Contato arthur = new Contato("Arthur", "489910475884", "arthur@email.com");
 
+        //Criar Agenda
         Agenda primeiraAgenda = new Agenda(20);
-
+        //Adicionar o Contato na Agenda
         primeiraAgenda.addContato(arthur);
 
+
+        //Mostrar todos os contatos
         System.out.println("Mostrar todos os contatos: ");
         primeiraAgenda.getContatos();
         System.out.println("\n\n ");
 
+
+        //Adicionar novo Contato e Mostra todos os contatos
+        System.out.println("Adicionar novo Contato");
         Contato joao = new Contato("joao", "398427", "joao@email.com");
         primeiraAgenda.addContato(joao);
-
-        System.out.println("Mostrar todos os contatos: ");
         primeiraAgenda.getContatos();
+        System.out.println("\n\n");
+
+
 
         // primeiraAgenda.removeContato(arthur);
         // primeiraAgenda.getContatos();
 
+        //Criação de duplciados
         System.out.println("Criar outro arthur");
         Contato arthur2 = new Contato("Arthur", "4894910475884", "arthur2@email.com");
         primeiraAgenda.addContato(arthur2);
@@ -30,26 +40,26 @@ public class Main {
         primeiraAgenda.addContato(arthur3);
         primeiraAgenda.getContatos();
 
-        // Buscar por nome
+
+        // Buscar específico
         System.out.println("Buscar por nome");
         System.out.println(primeiraAgenda.getContato("Arthur"));
 
         System.out.println("Buscar por telefone");
         System.out.println(primeiraAgenda.getContato("398427"));
 
+
         // Criar e inserir novo contato sem email
         Contato josefina = new Contato("Josefina", "123456");
         primeiraAgenda.addContato(josefina);
-
         primeiraAgenda.getContatos();
+
 
         // Atualizar contato
         System.out.println("Atualizar email e nome");
         primeiraAgenda.updateContato(josefina, TipoDado.EMAIL, "josefina@email.com");
-        primeiraAgenda.getContatos();
         primeiraAgenda.updateContato(joao, TipoDado.NOME, "João");
         primeiraAgenda.getContatos();
-
         System.out.println("\n\n");
 
         // Buscar por prefixo
@@ -85,6 +95,10 @@ public class Main {
 
         System.out.println("Buscar por nome");
         System.out.println(primeiraAgenda.buscarPrefixo("João"));
+
+        System.out.println("Remover contato");
+        primeiraAgenda.removeContato(ana);
+        primeiraAgenda.getContatos();
         
     }
 }
