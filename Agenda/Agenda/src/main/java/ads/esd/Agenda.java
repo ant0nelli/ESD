@@ -55,7 +55,7 @@ public class Agenda {
             System.out.print(agenda[i]);
 
             if (i < tamanho - 1) {
-                System.out.print(", ");
+                System.out.print(",\n ");
             }
         }
         System.out.println("]");
@@ -141,6 +141,15 @@ public class Agenda {
         }
         sb.append("Na agenda existe " + encontrados + " contato(s) com o valor " + valor + " na agenda.");
         return sb.toString();
+    }
+
+
+    //Adcionar em lote
+    public void addContatoLote(Contato[] contatos){
+        for(Contato c :contatos ){
+            addContato(c);
+        }
+
     }
 
 }
