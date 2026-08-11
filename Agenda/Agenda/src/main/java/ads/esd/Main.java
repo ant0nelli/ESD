@@ -7,7 +7,7 @@ public class Main {
         Contato arthur = new Contato("Arthur", "489910475884", "arthur@email.com");
 
         //Criar Agenda
-        Agenda primeiraAgenda = new Agenda(30);
+        Agenda primeiraAgenda = new Agenda(5);
         //Adicionar o Contato na Agenda
         primeiraAgenda.addContato(arthur);
 
@@ -100,8 +100,18 @@ public class Main {
         primeiraAgenda.removeContato(ana);
         primeiraAgenda.getContatos();
 
-//        Contato joaozinho = new Contato("João Pedro", "9443322211", "dani@email.com");
-//        primeiraAgenda.addContato(joaozinho);
+        System.out.println(primeiraAgenda.getTamanho());
+        primeiraAgenda.remover(0);
+        primeiraAgenda.remover(0);
+        primeiraAgenda.remover(0);
+        primeiraAgenda.remover(0);
+        primeiraAgenda.remover(0);
+       
+
+        System.out.println(primeiraAgenda.getTamanho());
+
+
+
 
 
     }

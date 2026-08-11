@@ -10,9 +10,7 @@ public class Agenda {
 
     // Adicionar Contato
     public void addContato(Contato nome) {
-        if (tamanho >= agenda.length) {
-            throw new IndexOutOfBoundsException("Agenda está cheia");
-        }
+
 
         // Verificar dados repetidos
         if (tamanho > 0) {
@@ -31,18 +29,48 @@ public class Agenda {
             }
         }
 
-        this.agenda[tamanho] = nome;
+        if(tamanho == agenda.length){
+            expandir();
+        }
+        agenda[tamanho] = nome;
         tamanho++;
+//        this.agenda[tamanho] = nome;
+//        tamanho++;
+    }
+
+    public void expandir(){
+        Contato[] novo = new Contato[agenda.length * 2];
+        for (int i = 0; i < agenda.length; i++) {
+            novo[i] = agenda[i];
+        }
+        agenda = novo;
+    }
+
+    public void reduzir(){
+        if(tamanho <= agenda.length/4) {
+            Contato[] novo = new Contato[agenda.length/2];
+            for (int i = 0; i < tamanho; i++) {
+                novo[i] = agenda[i];
+            }
+            agenda = novo;
+        }
+
+
     }
 
     // Remover passando o Contato
-    public void remover(Contato nome) {
-        for (int i = 0; i < tamanho; i++) {
-            if (agenda[i].equals(nome)) {
-                remover(agenda[i]);
-                return;
-            }
+    public void remover(int indice){
+        if(indice < 0 || indice >= tamanho){
+            System.out.println("Indice Inválido");
+            return;
         }
+
+        for (int i = indice; i < tamanho; i++) {
+            agenda[i] = agenda[i+1];
+        }
+        agenda[tamanho-1] = null;
+        tamanho--;
+        reduzir();
 
     }
 
@@ -62,28 +90,20 @@ public class Agenda {
         System.out.println("]");
     }
 
-    // Remover indice e reoordenar
-    private void remover(int indice) {
-        if (indice < 0 || indice >= tamanho) {
-            throw new IllegalStateException("Indice Inválido");
-        }
 
-        for (int i = indice; i < tamanho; i++) {
-            agenda[i] = agenda[i + 1];
-        }
-        agenda[tamanho - 1] = null;
-        tamanho--;
-    }
 
     // Excluir um contato
     public void removeContato(Contato nome) {
         for (int i = 0; i < tamanho; i++) {
             if (agenda[i].equals(nome)) {
                 remover(i);
-                return;
             }
         }
+        agenda[tamanho-1] = null;
+        tamanho--;
+        reduzir();
     }
+
 
     // Buscar Contato
     public String getContato(String valor) {
@@ -150,6 +170,10 @@ public class Agenda {
             addContato(c);
         }
 
+    }
+
+    public int getTamanho(){
+        return agenda.length;
     }
 
 }
