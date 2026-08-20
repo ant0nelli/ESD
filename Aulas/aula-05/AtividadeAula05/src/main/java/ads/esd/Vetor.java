@@ -6,8 +6,8 @@ public class Vetor<T> {
     private int tamanho;
 
     @SuppressWarnings("unchecked")
-    public Vetor(int quantidade){
-        elementos = (T[])  new Object[quantidade];
+    public Vetor(int quantidade) {
+        elementos = (T[]) new Object[quantidade];
         tamanho = 0;
 
     }
@@ -16,45 +16,58 @@ public class Vetor<T> {
         if (tamanho == elementos.length) {
             expandir();
         }
-        //Verificar repetição
-        for (int i = 0; i < tamanho; i++) {
-            if(elemento.equals((Integer) elementos[i])){
-                System.out.println("Valor repetido");
-                break;
-            }
+
+        // Verificar repetição
+        if (verificarRepetido(elemento)) {
+            System.out.println("Elemento já existe");
+            return;
         }
+
+        //Inserir e reordenar
+        //v = {5,8,12,15}
+        //elemento = 10
+        //tamanho = 4
 
         if(tamanho == 0){
             elementos[0] = elemento;
             tamanho++;
+            System.out.println("Tamanho é zero, adicionando primeiro elemento");
+            return;
         }
 
-        //Ordem crescente
-        //20
         for (int i = 0; i < tamanho; i++) {
-            if((Integer) elemento < (Integer) elementos[i]){
-                reordenarInserir(i, elemento);
-                break;
+            if((Integer) elemento < (Integer)elementos[i]){ //10<5 i=0  //10<8 i=1 //10 < 12 i=2
+                //Deslocar
+                for(int j = tamanho; j > i; j--){ //j = 4 //j< i(2) //j=3 j<2 //j=2 2<2 X
+                    elementos[j] = elementos[j-1]; //[5] = [4] //[4] = [3]
+                   
+                }
+
+                // inserir posição i
+                elementos[i] = elemento; //i = 2
+                tamanho++;
+                return;
+            } //5,8,12,12,15 -> 5,8,10,12,15
+            else if((Integer) elementos[tamanho-1] < (Integer) elemento){
+                elementos[tamanho] = elemento;
+                tamanho++;
+                return;
             }
         }
-    }
 
-    private void reordenarInserir(int posicao, T elemento){
-        for (int i = tamanho -1; i >= 0; i--) {
-            Integer atual = (Integer) elementos[i];
-            if(atual > (Integer) elemento){
-                elementos[i+1] = elementos[i];
-            }
-            else{
-                break;
-            }
-            elementos[i+1] = elemento;
-        }
-
-
+        elementos[tamanho] = elemento;
         tamanho++;
     }
 
+    public boolean verificarRepetido(T elemento) {
+        for (int i = 0; i < tamanho; i++) {
+
+            if (elementos[i].equals(elemento)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     @SuppressWarnings("unchecked")
     private void expandir() {
@@ -67,8 +80,8 @@ public class Vetor<T> {
 
     @SuppressWarnings("unchecked")
     private void reduzir() {
-        if (tamanho <= elementos.length/4) {
-            T[] novo = (T[]) new Object[elementos.length/2];
+        if (tamanho <= elementos.length / 4) {
+            T[] novo = (T[]) new Object[elementos.length / 2];
             for (int i = 0; i < tamanho; i++) {
                 novo[i] = elementos[i];
             }
@@ -82,37 +95,21 @@ public class Vetor<T> {
             return;
         }
         for (int i = indice; i < tamanho; i++) {
-            elementos[i] = elementos[i+1];
+            elementos[i] = elementos[i + 1];
         }
-        elementos[tamanho-1] = null;
+        elementos[tamanho - 1] = null;
         tamanho--;
         reduzir();
     }
 
-
-
-
     public void imprimir() {
         System.out.print("[");
-        for (int i = 0; i < tamanho ; i++) {
+        for (int i = 0; i < tamanho; i++) {
             System.out.print(elementos[i]);
-            if (i < tamanho -1) {
+            if (i < tamanho - 1) {
                 System.out.print(", ");
             }
         }
         System.out.println("]");
     }
-
-@SuppressWarnings("unchecked")
-    public void gerarNumeros(int qtd, int max, int min){
-        for (int i = 0; i < qtd; i++) {
-            int numero = (int)(Math.random() * ((max - min) + 1)) + min;
-            inserir((T) Integer.valueOf(numero));
-
-        }
-        imprimir();
-    }
-
-
-
 }
