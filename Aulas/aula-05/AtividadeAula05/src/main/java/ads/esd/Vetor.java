@@ -19,7 +19,7 @@ public class Vetor<T> {
 
         // Verificar repetição
         if (verificarRepetido(elemento)) {
-            System.out.println("Elemento já existe");
+            System.out.println("Elemento " + elemento  + " já existe");
             return;
         }
 
@@ -112,4 +112,13 @@ public class Vetor<T> {
         }
         System.out.println("]");
     }
+
+    public T ler(int indice){
+        return elementos[indice];
+    }
+
+    public int getTamanho() {
+        return tamanho;
+    }
+
 }
