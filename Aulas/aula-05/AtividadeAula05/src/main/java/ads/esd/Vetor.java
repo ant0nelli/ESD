@@ -1,13 +1,13 @@
 package ads.esd;
 
-public class Vetor<T> {
+public class Vetor<T extends Comparable<T>> {
 
     private T[] elementos;
     private int tamanho;
 
     @SuppressWarnings("unchecked")
     public Vetor(int quantidade) {
-        elementos = (T[]) new Object[quantidade];
+        elementos = (T[]) new Comparable[quantidade];
         tamanho = 0;
 
     }
@@ -36,6 +36,7 @@ public class Vetor<T> {
         }
 
         for (int i = 0; i < tamanho; i++) {
+            //if (elementos[i].compareTo(valor) > 0 ){}
             if((Integer) elemento < (Integer)elementos[i]){ //10<5 i=0  //10<8 i=1 //10 < 12 i=2
                 //Deslocar
                 for(int j = tamanho; j > i; j--){ //j = 4 //j< i(2) //j=3 j<2 //j=2 2<2 X
