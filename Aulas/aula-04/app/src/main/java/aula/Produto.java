@@ -2,7 +2,7 @@ package aula;
 
 import java.util.Objects;
 
-public class Produto {
+public class Produto implements Comparable<Produto>{
 
     private int id;
     private String nome;
@@ -13,6 +13,12 @@ public class Produto {
         this.nome = nome;
         this.preco = preco;
     }
+
+    @Override
+    public int compareTo(Produto outro){
+        return Double.compare(this.preco, outro.preco);
+    }
+    
 
     public int getId() {
         return id;

@@ -31,7 +31,6 @@ public class Vetor<T> {
         if(tamanho == 0){
             elementos[0] = elemento;
             tamanho++;
-            System.out.println("Tamanho é zero, adicionando primeiro elemento");
             return;
         }
 
