@@ -19,35 +19,34 @@ public class Vetor<T> {
 
         // Verificar repetição
         if (verificarRepetido(elemento)) {
-            System.out.println("Elemento " + elemento  + " já existe");
             return;
         }
 
-        //Inserir e reordenar
-        //v = {5,8,12,15}
-        //elemento = 10
-        //tamanho = 4
+        // Inserir e reordenar
+        // v = {5,8,12,15}
+        // elemento = 10
+        // tamanho = 4
 
-        if(tamanho == 0){
+        if (tamanho == 0) {
             elementos[0] = elemento;
             tamanho++;
             return;
         }
 
         for (int i = 0; i < tamanho; i++) {
-            if((Integer) elemento < (Integer)elementos[i]){ //10<5 i=0  //10<8 i=1 //10 < 12 i=2
-                //Deslocar
-                for(int j = tamanho; j > i; j--){ //j = 4 //j< i(2) //j=3 j<2 //j=2 2<2 X
-                    elementos[j] = elementos[j-1]; //[5] = [4] //[4] = [3]
+            if ((Integer) elemento < (Integer) elementos[i]) { // 10<5 i=0 //10<8 i=1 //10 < 12 i=2
+                // Deslocar
+                for (int j = tamanho; j > i; j--) { // j = 4 //j< i(2) //j=3 j<2 //j=2 2<2 X
+                    elementos[j] = elementos[j - 1]; // [5] = [4] //[4] = [3]
 
                 }
 
                 // inserir posição i
-                elementos[i] = elemento; //i = 2
+                elementos[i] = elemento; // i = 2
                 tamanho++;
                 return;
-            } //5,8,12,12,15 -> 5,8,10,12,15
-            else if((Integer) elementos[tamanho-1] < (Integer) elemento){
+            } // 5,8,12,12,15 -> 5,8,10,12,15
+            else if ((Integer) elementos[tamanho - 1] < (Integer) elemento) {
                 elementos[tamanho] = elemento;
                 tamanho++;
                 return;
@@ -112,12 +111,16 @@ public class Vetor<T> {
         System.out.println("]");
     }
 
-    public T ler(int indice){
+    public T ler(int indice) {
         return elementos[indice];
     }
 
     public int getTamanho() {
         return tamanho;
+    }
+
+    public Object[] getDados() {
+        return  this.elementos;
     }
 
 }
