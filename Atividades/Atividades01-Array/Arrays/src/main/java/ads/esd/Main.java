@@ -12,7 +12,7 @@ public class Main {
         // Adicionar números aos vetores
         gerarNumeros(vetor1000, 1000, 0, 999999999);
         gerarNumeros(vetor10000, 10000, 0, 999999999);
-        gerarNumeros(vetor100000, 100000, -999999999, 999999999);
+        gerarNumeros(vetor100000, 100000, 0, 999999999);
 
         while (vetor1000.getTamanho() < 1000) {
             gerarNumeros(vetor1000, 1, 0, 999999999);
@@ -42,7 +42,7 @@ public class Main {
 
         System.out.println("Utilizando busca binária: ");
         System.out.println(buscaBinaria(vetor1000, primeiro));
-        System.out.println("\n\n");
+        System.out.println("\n");
 
         System.out.println("---------------------------Vetor10.000-------------------------");
         primeiro = vetor10000.ler(0);
@@ -50,7 +50,7 @@ public class Main {
         System.out.println(buscaLinear(vetor10000, primeiro));
         System.out.println("Utilizando busca binária: ");
         System.out.println(buscaBinaria(vetor10000, primeiro));
-        System.out.println("\n\n");
+        System.out.println("\n");
 
         System.out.println("---------------------------Vetor100.000------------------------");
         primeiro = vetor100000.ler(0);
@@ -58,7 +58,7 @@ public class Main {
         System.out.println(buscaLinear(vetor100000, primeiro));
         System.out.println("Utilizando busca binária: ");
         System.out.println(buscaBinaria(vetor100000, primeiro));
-        System.out.println("\n\n");
+        System.out.println("\n");
 
         // Meio
         System.out.println("--------------------------------------------------------------");
@@ -70,7 +70,7 @@ public class Main {
         System.out.println(buscaLinear(vetor1000, meio));
         System.out.println("Utilizando busca binária: ");
         System.out.println(buscaBinaria(vetor1000, meio));
-        System.out.println("\n\n");
+        System.out.println("\n");
 
         System.out.println("---------------------------Vetor 10.000--------------------------");
         meio = vetor10000.ler(5000);
@@ -78,7 +78,7 @@ public class Main {
         System.out.println(buscaLinear(vetor10000, meio));
         System.out.println("Utilizando busca binária: ");
         System.out.println(buscaBinaria(vetor10000, meio));
-        System.out.println("\n\n");
+        System.out.println("\n");
 
         System.out.println("---------------------------Vetor 100.000--------------------------");
         meio = vetor100000.ler(50000);
@@ -86,7 +86,7 @@ public class Main {
         System.out.println(buscaLinear(vetor100000, meio));
         System.out.println("Utilizando busca binária: ");
         System.out.println(buscaBinaria(vetor100000, meio));
-        System.out.println("\n\n");
+        System.out.println("\n");
 
         // Fim
         System.out.println("-------------------------------------------------------------");
@@ -99,7 +99,7 @@ public class Main {
         System.out.println(buscaLinear(vetor1000, ultimo));
         System.out.println("Utilizando busca binária: ");
         System.out.println(buscaBinaria(vetor1000, ultimo));
-        System.out.println("\n\n");
+        System.out.println("\n");
 
         System.out.println("---------------------------Vetor 10.000--------------------------");
         tamanho = vetor10000.getTamanho();
@@ -117,7 +117,7 @@ public class Main {
         System.out.println(buscaLinear(vetor100000, ultimo));
         System.out.println("Utilizando busca binária: ");
         System.out.println(buscaBinaria(vetor100000, ultimo));
-        System.out.println("\n\n");
+        System.out.println("\n");
 
         // -------------Busca Binária-------------
         // Todos os casos foram bons tendo um tempo de 0ms
@@ -168,7 +168,7 @@ public class Main {
 
 
         //Dicionário
-        //A busca sequencial na pior das hipotese precisaria de 240000 etapas
+        //A busca sequencial na pior das hipotese precisaria de 240.000 etapas
         //A busca binária na pior hipotese precisaria de 18 etapas
         //A generalização é pela fórmula log de N na base 2 sendo N o tamanho do array 2^18 = 262.144, suficiente para cobrir o tamanho de 240.000
     }

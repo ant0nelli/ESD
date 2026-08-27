@@ -34,15 +34,15 @@ public class Vetor<T> {
         }
 
         for (int i = 0; i < tamanho; i++) {
-            if ((Integer) elemento < (Integer) elementos[i]) { // 10<5 i=0 //10<8 i=1 //10 < 12 i=2
+            if ((Integer) elemento < (Integer) elementos[i]) { 
                 // Deslocar
-                for (int j = tamanho; j > i; j--) { // j = 4 //j< i(2) //j=3 j<2 //j=2 2<2 X
-                    elementos[j] = elementos[j - 1]; // [5] = [4] //[4] = [3]
+                for (int j = tamanho; j > i; j--) { 
+                    elementos[j] = elementos[j - 1]; 
 
                 }
 
                 // inserir posição i
-                elementos[i] = elemento; // i = 2
+                elementos[i] = elemento; 
                 tamanho++;
                 return;
             } // 5,8,12,12,15 -> 5,8,10,12,15
@@ -59,7 +59,6 @@ public class Vetor<T> {
 
     public boolean verificarRepetido(T elemento) {
         for (int i = 0; i < tamanho; i++) {
-
             if (elementos[i].equals(elemento)) {
                 return true;
             }
