@@ -19,7 +19,7 @@ public class Main {
         agenda.VetorDeLista();
         
         while (opcao != 5) {
-            System.out.print("Escolha uma opção: ");
+            System.out.print("\nEscolha uma opção: ");
             opcao = Integer.parseInt(scanner.nextLine());
 
             switch (opcao){
@@ -39,18 +39,24 @@ public class Main {
                 case 3:
                     System.out.print("Digite o nome do contato a buscar: ");
                     nome = scanner.nextLine();
-                    agenda.buscarPorNome(nome);
+                    System.out.println(agenda.buscarPorNome(nome));
+                    
                     break;
                 case 4:
                     System.out.print("Digtite o nome do contato a atualizar: ");
                     nome = scanner.nextLine();
-                    System.out.println("Digtite o novo telefone do contato a atualizar: ");
+                    if(agenda.buscarPorNome(nome).equals("Contato não encontrado.")){
+                        System.out.println("Contato não encontrado");
+                        break;
+                    }
+                    System.out.print("Digtite o novo telefone do contato a atualizar: ");
                     telefone = scanner.nextLine();
                     agenda.updateContato(nome, telefone);
                     break;
                 case 5:
                     System.out.println("Saindo");
                 default:
+                    System.out.println("Opção Inválida");
             }
         }
         scanner.close();

@@ -23,16 +23,17 @@ public class VetorLista {
     public void remover(String nome){
         char letra = Character.toUpperCase(nome.charAt(0));
         int indice = letra - 'A';
-        nomesporLetra[indice].removerPorNome(nome);
+        System.out.println(nomesporLetra[indice].removerPorNome(nome));
+        
     }
 
-    public void buscarPorNome(String nome){
+    public String buscarPorNome(String nome){
         
             char letraDesejada = Character.toUpperCase(nome.charAt(0));
             int indice = letraDesejada - 'A';
             
             String resultado = nomesporLetra[indice].getContato(nome);
-            System.out.println(resultado);
+            return resultado;
 
         
     }
@@ -41,7 +42,7 @@ public class VetorLista {
     public void updateContato(String nome, String telefoneNovo) {
         char letra = Character.toUpperCase(nome.charAt(0));
         int indice = letra - 'A';
-        nomesporLetra[indice].updateContato(nome, telefoneNovo);
+        System.out.println(nomesporLetra[indice].updateContato(nome, telefoneNovo));
     }
 
 }

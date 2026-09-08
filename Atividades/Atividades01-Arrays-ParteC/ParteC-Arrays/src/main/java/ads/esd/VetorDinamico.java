@@ -53,7 +53,7 @@ public class VetorDinamico {
 
     public String removerPorNome(String nome) {
         for (int i = 0; i < tamanho; i++) {
-            if (elementos[i].getNome().equals(nome)) {
+            if (elementos[i].getNome().equalsIgnoreCase(nome)) {
                 remover(i);
                 return "Contato removido com sucesso!";
             }
@@ -83,7 +83,7 @@ public class VetorDinamico {
                 }
             }
         }
-        return "Não encontrado";
+        return "Contato não encontrado.";
 
     }
 
