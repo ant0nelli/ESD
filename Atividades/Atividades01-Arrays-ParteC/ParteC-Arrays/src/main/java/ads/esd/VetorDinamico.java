@@ -13,7 +13,21 @@ public class VetorDinamico {
         if (tamanho == elementos.length) {
             expandir();
         }
-        elementos[tamanho] = contato;
+
+        // Ordenado
+        int posicaoInserir = tamanho;
+
+        for (int i = 0; i < tamanho; i++) {
+            if (contato.getNome().compareToIgnoreCase(elementos[i].getNome()) <= 0) {
+                posicaoInserir = i;
+                break;
+            }
+        }
+        for (int j = tamanho; j > posicaoInserir; j--) {
+            elementos[j] = elementos[j - 1];
+        }
+
+        elementos[posicaoInserir] = contato;
         tamanho++;
     }
 
@@ -72,14 +86,15 @@ public class VetorDinamico {
     }
 
     public String getContato(String valor) {
-        
+
         for (Contato c : elementos) {
             if (c != null) {
                 if (c.getNome().equalsIgnoreCase(valor)) {
-        
+
                     char letraVetor = Character.toUpperCase(c.getNome().charAt(0));
 
-                    return "Contato encontrado no Vetor '" + letraVetor + "': "  + c.getNome() + ", Telefone: " + c.getTelefone();
+                    return "Contato encontrado no Vetor '" + letraVetor + "': " + c.getNome() + ", Telefone: "
+                            + c.getTelefone();
                 }
             }
         }
