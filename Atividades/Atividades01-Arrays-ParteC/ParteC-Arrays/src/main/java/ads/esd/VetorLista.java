@@ -14,34 +14,34 @@ public class VetorLista {
     }
 
 
-    public void inserir(String nome){
-        char letra = Character.toUpperCase(nome.charAt(0)); //a
+    public void inserir(Contato contato){
+        char letra = Character.toUpperCase(contato.getNome().charAt(0)); //a
         int indice = letra - 'A'; //0
-        nomesporLetra[indice].inserir(nome);
+        nomesporLetra[indice].inserir(contato);
     }
 
     public void remover(String nome){
-        char letra = Character.toUpperCase((nome.charAt(0));
+        char letra = Character.toUpperCase(nome.charAt(0));
         int indice = letra - 'A';
         nomesporLetra[indice].removerPorNome(nome);
     }
 
     public void buscarPorNome(String nome){
-        for (int i = 0; i < 26; i++) {
-            char letraAtual = (char) ('A' + i);
+        
             char letraDesejada = Character.toUpperCase(nome.charAt(0));
+            int indice = letraDesejada - 'A';
+            
+            String resultado = nomesporLetra[indice].getContato(nome);
+            System.out.println(resultado);
 
-            if(letraAtual == letraDesejada){
-                nomesporLetra[i].getContato(nome);
-            }
-
-        }
+        
     }
 
 
-    public void updateContato(String nome, String telefone) {
-        
-
+    public void updateContato(String nome, String telefoneNovo) {
+        char letra = Character.toUpperCase(nome.charAt(0));
+        int indice = letra - 'A';
+        nomesporLetra[indice].updateContato(nome, telefoneNovo);
     }
 
 }
