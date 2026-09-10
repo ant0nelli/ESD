@@ -102,14 +102,6 @@ public class VetorDinamico {
 
     }
 
-    public void buscarPorNome(String nome) {
-        for (int i = 0; i < tamanho; i++) {
-            if (elementos[i].getNome().equals(nome)) {
-                getContato(nome);
-                return;
-            }
-        }
-    }
 
     public void imprimir() {
         System.out.print("[");
