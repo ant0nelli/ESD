@@ -2,7 +2,7 @@ package ads.esd;
 
 public class DecToBin {
     static void main(){
-        PilhaComposicao<Integer> pilha = new PilhaComposicao<>(50);
+        Stack<Integer> pilha = new Stack<>(50);
 
         int numero = 19;
 
