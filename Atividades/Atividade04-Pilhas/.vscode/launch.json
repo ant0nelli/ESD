@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Labirinto",
+            "request": "launch",
+            "mainClass": "Labirinto",
+            "projectName": "Atividade04-Pilhas_b36e6050",
+            "stopOnEntry": true
+        },
+        {
+            "type": "java",
+            "name": "Debug Java App",
+            "request": "launch",
+            "mainClass": "Labirinto",
+            "projectName": "Atividade04-Pilhas",
+            "stopOnEntry": true
+        }
+    ]
+}
