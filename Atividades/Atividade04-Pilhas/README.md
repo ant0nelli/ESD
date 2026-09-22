@@ -1,18 +1,15 @@
-## Getting Started
+## Questões
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+### Durante a execução, observe o comportamento da pilha. Explique, com suas palavras, o que acontece com a pilha quando o algoritmo:
+#### 1. Encontra uma nova posição que pode ser explorada;
+A pilha recebe a nova posição
+#### 2. Chega a um caminho sem saída;
+A pilha "remove" esse caminho 
+#### 3. Precisa retornar a uma bifurcação;
+A pilha vai "removendo" os caminhos até achar uma posição que há outra opção para ser explorada
+#### 4. Encontra o destino.
+Guarda a posição de destino
 
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+#### Por fim, considerando um labirinto com L linhas e C colunas, determine a complexidade de tempo do
+algoritmo no pior caso e justifique sua resposta.
+A complexidade seria O(L x C), e o pior caso seria se não houve um T e fosse necessário percorrer todos os espaços vazios.

@@ -53,20 +53,15 @@ public class Labirinto {
         // Encontrar caminho
         if (linha > -1 && linha < mapa.length && coluna > -1 && coluna < mapa[0].length) {
             // Cima
-            if(mapa[linha - 1][coluna] == 'T'){
-                System.out.println("Labirinto resolvido");
+            if(linha > 0 && mapa[linha - 1][coluna] == 'T'){
                 return true;
             }            
-            else if (mapa[linha - 1][coluna] == ' ') {
+            else if (linha > 0 && mapa[linha - 1][coluna] == ' ') {
                 mapa[--linha][coluna] = '-';
                 pilha.push(linha-- + "," + coluna);
             }
-
-
-
             // Baixo
             else if(mapa[linha + 1][coluna] == 'T'){
-                System.out.println("Labirinto resolvido");
                 return true;
             }
             else if (mapa[linha + 1][coluna] == ' ') {
@@ -75,7 +70,6 @@ public class Labirinto {
             }
             // Direita
             else if(mapa[linha][coluna + 1] == 'T'){
-                System.out.println("Labirinto resolvido");
                 return true;
             }
             else if (mapa[linha][coluna + 1] == ' ') {
@@ -83,11 +77,10 @@ public class Labirinto {
                 pilha.push(linha + "," + coluna++);
             }
             // Esquerda
-            else if(mapa[linha][coluna - 1] == 'T'){
-                System.out.println("Labirinto resolvido");
+            else if(coluna > 0 && mapa[linha][coluna - 1] == 'T'){
                 return true;
             }
-            else if (mapa[linha][coluna - 1] == ' ') {
+            else if ( coluna > 0 &&  mapa[linha][coluna - 1] == ' ') {
                 mapa[linha][--coluna] = '-';
                 pilha.push(linha++ + "," + coluna--);
             } else {
@@ -103,13 +96,17 @@ public class Labirinto {
     public static void main(String[] args) {
         Labirinto labirinto = new Labirinto();
     
-        Stack<String> pilha = new Stack<>(100000);
+        Stack<String> pilha = new Stack<>(100);
         pilha.push(labirinto.linhaInicial + "," + labirinto.colunaInicial);
 
         boolean resolvido = false;
         while(!pilha.isEmpty() && !resolvido ){
             labirinto.imprimir();
             resolvido = labirinto.resolver(pilha);
+        }if(resolvido){
+            System.out.println("Labirinto resolvido");
+        }else{
+            System.out.println("Labirinto sem solução");
         }
         
 
