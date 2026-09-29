@@ -1,0 +1,58 @@
+public class Fila<T extends Comparable> {
+    private T[] elementos;
+    private int tamanho;
+
+    @SuppressWarnings("unchecked")
+    public Fila(int capacidade){
+        this.elementos = (T[]) new Comparable[capacidade];
+        this.tamanho = 0;
+    }
+
+    public boolean enfileirar(T elemento) {
+        if(tamanho == elementos.length){
+            return false;
+        }
+        elementos[tamanho] = elemento;
+        tamanho++;
+        return true;
+    }
+
+    private boolean isEmpty(){
+        return tamanho == 0;
+    }
+
+    public T desenfileirar() {
+        if(isEmpty()){
+            throw new RuntimeException("Fila vazia");
+        }
+        T elemento = elementos[0];
+
+        for (int i = 0; i < tamanho - 1; i++) {
+            elementos[i] = elementos[i+1];
+        }
+        elementos[tamanho-1] = null;
+        tamanho--;
+        return elemento;
+    }
+
+    public T frente(){
+        if(isEmpty()){
+            throw new RuntimeException("Fila vazia");
+        }
+        return elementos[0];
+    }
+
+    public void imprimir(){
+        if(isEmpty()){
+            System.out.println("Fila vazia");
+        }
+        else{
+            System.out.println("Fila: ");
+            for (int i = 0; i < tamanho; i ++){
+                System.out.print(elementos[i] + " ");
+            }
+            System.out.println();
+        }
+
+    }
+}
