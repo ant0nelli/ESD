@@ -38,11 +38,14 @@ public class Escalonador<T extends Comparable<T>> {
 
             if (fila.isEmpty()) {
                 System.out.println("Nenhum processo para ser executado.");
-                tempoAtual++;
                 continue;
             }
+
+
             Processo atual = fila.desenfileirar();
             atual.setStatus(Status.EXECUTANDO);
+
+
             try {
                 System.out.println(atual.getNome() + " executando...");
                 Thread.sleep(2000); // pausa 2 segundos
@@ -53,12 +56,12 @@ public class Escalonador<T extends Comparable<T>> {
             
             int executadas = (quantum < atual.getInstrucoesRestantes()) ? quantum : atual.getInstrucoesRestantes();
             atual.setInstrucoesRestantes(atual.getInstrucoesRestantes() - executadas);
-            tempoAtual += executadas;
+
 
             System.out.println(atual.getNome() + " executou " + executadas + " instuções. Restam: "
                     + atual.getInstrucoesRestantes());
-            verificarNovos();
-            if (atual.getInstrucoesRestantes() < 1) {
+
+            if (atual.getInstrucoesRestantes() == 0) {
                 atual.setStatus(Status.TERMINADO);
                 processosTerminado++;
                 System.out.println(atual.getNome() + " terminou.");
@@ -66,6 +69,7 @@ public class Escalonador<T extends Comparable<T>> {
                 atual.setStatus(Status.PRONTO);
                 fila.enfileirar(atual);
             }
+            tempoAtual++;
         }
         System.out.println("FIM");
     }
